@@ -1,0 +1,201 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+    line-height: 1.5;
+}
+
+header {
+    background: #dcebd8;
+    padding: 20px;
+    border-bottom: 2px solid #78936f;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header p {
+    margin-bottom: 0;
+}
+
+main {
+    max-width: 1000px;
+    margin: 15px auto;
+    padding: 0 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+section {
+    background: white;
+    border: 1px solid #bbb;
+    padding: 15px;
+}
+
+#sensor-panel {
+    grid-row: span 2;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 21px;
+}
+
+form {
+    display: grid;
+    gap: 7px;
+}
+
+label {
+    margin-top: 5px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #888;
+    background: white;
+    font: inherit;
+}
+
+input:focus,
+select:focus,
+button:focus-visible {
+    outline: 2px solid #315b3c;
+    outline-offset: 2px;
+}
+
+input.invalid {
+    border: 2px solid #b00020;
+}
+
+.field-error {
+    color: #b00020;
+}
+
+.error-banner {
+    background: #ffe8e8;
+    border: 1px solid #b00020;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 8px 12px;
+    margin-top: 8px;
+    border: 1px solid #315b3c;
+    background: #e2eddf;
+    color: #172b18;
+    font: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #cddfc8;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.test-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.test-buttons button {
+    margin-top: 0;
+}
+
+#log-list {
+    display: grid;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.log-card {
+    border: 1px solid #aaa;
+    border-left: 4px solid #888;
+    padding: 10px;
+}
+
+.log-card h3 {
+    margin: 0 0 6px;
+    font-size: 18px;
+}
+
+.log-card p {
+    margin: 5px 0;
+}
+
+.log-card.optimal {
+    border-left-color: #287a3e;
+}
+
+.log-card.warning {
+    border-left-color: #c28a13;
+}
+
+.log-card.critical {
+    border-left-color: #b42318;
+}
+
+.status-label {
+    display: inline-block;
+    padding: 2px 6px;
+    border: 1px solid #aaa;
+    font-weight: bold;
+}
+
+.status-label.optimal {
+    background: #e0f4e5;
+    color: #205d30;
+}
+
+.status-label.warning {
+    background: #fff2cc;
+    color: #76520a;
+}
+
+.status-label.critical {
+    background: #ffe3e0;
+    color: #8d1a13;
+}
+
+.delete-log {
+    background: #eee;
+    border-color: #888;
+}
+
+#log-count {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+}
+
+@media (max-width: 700px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    #sensor-panel {
+        grid-row: auto;
+    }
+}

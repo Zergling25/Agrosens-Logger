@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenhouse Sensor Logger</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Greenhouse Sensor Logger</h1>
+        <p>Record and check greenhouse conditions.</p>
+    </header>
+
+    <main>
+        <section id="sensor-panel">
+            <h2>Enter Sensor Reading</h2>
+            <p>Enter the current readings for a greenhouse bay.</p>
+
+            <div id="error-banner" class="error-banner" role="alert" aria-live="polite" hidden></div>
+
+            <form id="sensor-form">
+                <label for="bay">Greenhouse Bay</label>
+                <select id="bay" name="bay" required>
+                    <option value="">Choose a bay</option>
+                    <option value="Bay 1">Bay 1</option>
+                    <option value="Bay 2">Bay 2</option>
+                    <option value="Bay 3">Bay 3</option>
+                </select>
+
+                <label for="ph">pH</label>
+                <input id="ph" name="ph" type="number" min="0" max="14" step="any" placeholder="Example: 6.0" required aria-describedby="ph-error">
+                <small id="ph-error" class="field-error"></small>
+
+                <label for="ec">EC (mS/cm)</label>
+                <input id="ec" name="ec" type="number" min="0" step="any" placeholder="Example: 1.5" required aria-describedby="ec-error">
+                <small id="ec-error" class="field-error"></small>
+
+                <label for="temperature">Temperature (°F)</label>
+                <input id="temperature" name="temperature" type="number" step="any" placeholder="Example: 68" required aria-describedby="temperature-error">
+                <small id="temperature-error" class="field-error"></small>
+
+                <label for="humidity">Humidity (%)</label>
+                <input id="humidity" name="humidity" type="number" min="0" max="100" step="any" placeholder="Example: 60" required aria-describedby="humidity-error">
+                <small id="humidity-error" class="field-error"></small>
+
+                <button type="submit">Record Reading</button>
+            </form>
+        </section>
+
+        <section id="test-readings">
+            <h2>Test Status Rules</h2>
+            <p>Use these examples to test each status. Select a button, then click Record Reading.</p>
+            <div class="test-buttons">
+                <button type="button" data-test="optimal">Test Optimal</button>
+                <button type="button" data-test="warning">Test Warning</button>
+                <button type="button" data-test="critical">Test Critical Hazard</button>
+            </div>
+        </section>
+
+        <section id="latest-status">
+            <h2>Latest Status</h2>
+            <p id="status-message">No readings have been recorded yet.</p>
+        </section>
+
+        <section id="log-panel">
+            <h2>Saved Readings <span id="log-count">0</span></h2>
+            <ul id="log-list"></ul>
+            <p id="empty-message">No saved readings yet.</p>
+            <button id="clear-logs" type="button">Clear All Logs</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Greenhouse Sensor Logger</p>
+    </footer>
+</body>
+</html>
